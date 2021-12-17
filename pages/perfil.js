@@ -13,7 +13,7 @@ export default function Page() {
 
     if (!session) { return  <Layout><AccessDenied/></Layout> }
 
-    console.log(status);
+    console.log(session);
   return (
     <Layout>
       <h1>Pagina de perfil de {user.name}</h1>

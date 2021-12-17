@@ -7,9 +7,17 @@ import Auth0Provider from "next-auth/providers/auth0"
 // import AppleProvider from "next-auth/providers/apple"
 // import EmailProvider from "next-auth/providers/email"
 
+
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import clientPromise from "../../../components/lib/mongodb"
+
+// For more information on each option (and a full list of options) go to
+// https://next-auth.js.org/configuration/options
+
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 export default NextAuth({
+  adapter: MongoDBAdapter(clientPromise),
   // https://next-auth.js.org/configuration/providers
   providers: [
     /* EmailProvider({
@@ -118,4 +126,5 @@ export default NextAuth({
 
   // Enable debug messages in the console if you are having problems
   debug: false,
+  
 })
